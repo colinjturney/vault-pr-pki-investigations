@@ -4,6 +4,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "vault-1" do |subconfig|
     subconfig.vm.box = BOX_IMAGE
+    subconfig.vm.network "private_network", type: "dhcp"
     subconfig.vm.hostname = "vault-1"
     subconfig.vm.provider :virtualbox do |vb|
              vb.customize ['modifyvm', :id,'--memory', '512']
@@ -15,6 +16,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "vault-2" do |subconfig|
     subconfig.vm.box = BOX_IMAGE
+    subconfig.vm.network "private_network", type: "dhcp"
     subconfig.vm.hostname = "vault-2"
     subconfig.vm.provider :virtualbox do |vb|
              vb.customize ['modifyvm', :id,'--memory', '512']

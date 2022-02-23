@@ -6,8 +6,8 @@ export VAULT_1_UNSEAL_KEY=$(cat /vagrant/vault-1.txt | grep Unseal | cut -f2 -d'
 export UNSEAL_KEY=$(cat /vagrant/$(hostname).txt | grep Unseal | cut -f2 -d' ')
 export PR_WRAPPING_TOKEN=$(cat /vagrant/vault-1.txt | grep PRWrapping | cut -f2 -d' ')
 
-vault login ${ROOT_TOKEN}    
-vault write sys/replication/performance/secondary/enable token="${PR_WRAPPING_TOKEN}" primary_api_addr="http://192.168.56.101:8200"
+vault login ${ROOT_TOKEN}
+vault write sys/replication/performance/secondary/enable token="${PR_WRAPPING_TOKEN}"
 
 echo "Waiting 30 seconds..."
 sleep 30

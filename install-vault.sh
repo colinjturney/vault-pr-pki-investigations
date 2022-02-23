@@ -5,7 +5,7 @@
 
 readonly VAULT_VERSION="1.9.3+ent"
 export VAULT_ADDR=http://127.0.0.1:8200
-export LOCAL_IP=$(ip a | grep inet | grep brd | cut -d' ' -f6)
+export LOCAL_IP=$(ip a | grep inet | grep eth1 | cut -d' ' -f6 | cut -d'/' -f1)
 
 function print_usage {
   echo
@@ -50,8 +50,8 @@ ui = true
 #mlock = true
 #disable_mlock = true
 
-api_addr      = "http://${LOCAL_IP}:8200"
-cluster_addr  = "https://${LOCAL_IP}:8201"
+#api_addr      = "http://${LOCAL_IP}:8200"
+#cluster_addr  = "https://${LOCAL_IP}:8201"
 
 storage "raft" {
   path    = "opt/vault/data"
